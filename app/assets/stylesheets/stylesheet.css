@@ -1,0 +1,38 @@
+* {
+  background-color: #d0d0e1;
+  font-family: arial, helvetica,sans-serif;
+  text-decoration: none;
+}
+
+img {
+  border: solid black 5px;
+  padding: 5px;
+  background-color: red;
+  width: 100px;
+  height: 60px;
+}
+
+nav {
+  background-color: black;
+  text-align: right;
+  font-weight: bolder;
+  overflow: hidden;
+  max-width: 99%;
+  margin-left: 5px;
+}
+
+a {
+  background-color: black;
+  color: #d0d0e1;
+}
+
+.logo-text {
+  background-color: black;
+  vertical-align: text-top;
+}
+
+.nav-links {
+  background-color: black;
+  float: right;
+  margin-right: 10px;
+}

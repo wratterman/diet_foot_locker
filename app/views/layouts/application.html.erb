@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<%= stylesheet_link_tag "/assets/stylesheet.css" %>
 <html>
   <head>
     <title>DietFootLocker</title>
@@ -9,6 +10,17 @@
   </head>
 
   <body>
+    <nav>
+      <img <%= image_tag "diet_foot_locker.png" %> />
+      <a href='/' class="logo-text"> Diet Foot Locker</a>
+      <ul class ="nav-links">
+          <a href = "/login">Sign In</a>
+          <a href = "/sneakers">Sneakers</a>
+          <a href = "regions.html">Regions</a>
+          <a href = "account.html">Account</a>
+      </ul>
+    </nav>
+
     <%= flash.each do |name, msg| %>
       <%= content_tag :div, msg, :id => "flash_#{name}" %>
     <% end  %>
@@ -18,15 +30,6 @@
       <%= link_to "Logout", logout_path, method: :delete %>
     <% end %>
 
-    <nav>
-      <a href='/' class="logo-text">Diet Foot Locker</a>
-      <ul class ="nav-links">
-        <a href = "/login">Sign In</a>
-        <a href = "/sneakers">Sneakers</a>
-        <a href = "regions.html">Regions</a>
-        <a href = "account.html">Account</a>
-      </ul>
-    </nav>
     <%= yield %>
   </body>
 </html>
