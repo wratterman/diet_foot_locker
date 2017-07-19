@@ -1,0 +1,9 @@
+<h1><%="#{@sneaker.name}"%></h1>
+
+<ul>
+  <li><%=@sneaker.name %></li>
+  <li><%=@sneaker.description %></li>
+  <li><%=image_tag @sneaker.image_url%></li>
+  <li><%=@sneaker.description %></li>
+  <li><%=link_to "Buy Now", @sneaker.footlocker_url%></li>
+</ul>

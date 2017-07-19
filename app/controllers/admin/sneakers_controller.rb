@@ -1,24 +1,8 @@
 class Admin::SneakersController < Admin::MasterController
-  before_action :set_sneaker, only: [:show, :edit, :update, :destroy]
-
-  def index
-    @sneakers = Sneaker.all
-  end
+  before_action :set_sneaker, only: [:edit, :update, :destroy]
 
   def new
     @sneaker = Sneaker.new
-  end
-
-  def create
-    @sneaker = Sneaker.new(sneakers_params)
-    if @sneaker.save
-      #do a thing
-    else
-      render :new
-    end
-  end
-
-  def show
   end
 
   def edit
