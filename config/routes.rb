@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   resources :users, only: [:new, :create, :show]
-  resources :sneakers
+  resources :sneakers, only: [:index, :show]
+  namespace :admin do
+    resources :sneakers
+  end
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
