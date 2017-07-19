@@ -17,7 +17,7 @@ RSpec.feature "User logs in and out" do
 
     click_on "Login"
 
-    expect(current_path).to eq(user_path(user))
+    expect(current_path).to eq(sneakers_path)
     expect(page).to have_content("Welcome, #{user.username}")
     expect(page).to have_content("#{user.username}, successfully logged in!")
 

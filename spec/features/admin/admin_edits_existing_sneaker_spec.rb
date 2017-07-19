@@ -16,7 +16,8 @@ describe "User goes to an existing sneaker" do
 
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
 
-      visit edit_admin_sneaker_path(sneaker)
+      visit sneaker_path(sneaker)
+      click_on "Edit"
 
       fill_in "sneaker[name]", with: "Jordan XV"
       fill_in "sneaker[description]", with: "The Original Jordan XV's were worn by Michael Jordan 10 years after the 5s"

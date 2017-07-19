@@ -12,7 +12,8 @@ describe "User goes to new sneaker" do
 
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
 
-      visit new_admin_sneaker_path
+      visit sneakers_path
+      click_on "Create New Shoe"
 
       fill_in "sneaker[name]", with: "Jordan V"
       fill_in "sneaker[description]", with: "The Original Jordan V's were worn by Michael Jordan"
@@ -21,7 +22,7 @@ describe "User goes to new sneaker" do
       fill_in "sneaker[footlocker_url]", with: url
       click_button "Create"
 
-      expect(current_path).to eq("/sneaker/#{Sneaker.last.id}")
+      expect(current_path).to eq("/sneakers/#{Sneaker.last.id}")
       expect(page).to have_content("Jordan V")
       expect(Sneaker.count).to eq(1)
     end
