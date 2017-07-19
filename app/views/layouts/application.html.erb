@@ -22,12 +22,14 @@
     </nav>
 
     <%= flash.each do |name, msg| %>
-      <%= content_tag :div, msg, :id => "flash_#{name}" %>
+      <%= content_tag :div, msg, :id => "flash_#{name}"%>
     <% end  %>
 
-    <% if current_user %>
+    <% if current_user != nil %>
       Welcome, <%= current_user.username %>
       <%= link_to "Logout", logout_path, method: :delete %>
+    <% else %>
+      <%= link_to "Login", login_path %>
     <% end %>
 
     <%= yield %>
