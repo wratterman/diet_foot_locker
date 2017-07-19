@@ -1,0 +1,18 @@
+<h1> List of Sneakers </h1>
+
+<% @sneakers.each do |sneaker| %>
+  <ul>
+    <li>
+      <%= image_tag sneaker.image_url %>
+      <%= link_to sneaker.name, sneaker %>
+      <% if @is_admin %>
+        <%= link_to "Edit", edit_admin_sneaker_path(sneaker) %>
+        <%= link_to "Delete", admin_sneaker_path(sneaker), method: :delete %>
+      <% end %>
+    </li>
+  </ul>
+<% end %>
+
+  <% if @is_admin %>
+    <%= link_to "Create New Shoe", new_admin_sneaker_path %>
+  <% end %>

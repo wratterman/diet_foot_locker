@@ -13,6 +13,6 @@ class ApplicationController < ActionController::Base
   def login(user)
     session[:user_id] = user.id
     flash[:signin] = "#{user.username}, successfully logged in!"
-    redirect_to user_path(user)
+    redirect_to sneakers_path
   end
 end

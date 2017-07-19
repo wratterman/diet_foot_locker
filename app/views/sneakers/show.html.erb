@@ -1,9 +1,15 @@
 <h1><%="#{@sneaker.name}"%></h1>
 
+<h2><%=image_tag @sneaker.image_url%></h2>
+
 <ul>
   <li><%=@sneaker.name %></li>
   <li><%=@sneaker.description %></li>
-  <li><%=image_tag @sneaker.image_url%></li>
-  <li><%=@sneaker.description %></li>
+  <li>Price: $<%=@sneaker.price %></li>
   <li><%=link_to "Buy Now", @sneaker.footlocker_url%></li>
 </ul>
+
+<% if @is_admin %>
+  <%= link_to "Edit", edit_admin_sneaker_path(@sneaker) %>
+  <%= link_to "Delete", admin_sneaker_path(@sneaker), method: :delete %>
+<% end %>
