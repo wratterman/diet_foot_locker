@@ -1,0 +1,12 @@
+<%= form_for [ @sneaker, @review ] do |f| %>
+  <p>
+    <%= f.label :body, "Your Review" %><br/>
+    <%= f.text_area :body %>
+  </p>
+
+  <%= hidden_field_tag :sneaker_id, @sneaker.id %>
+  
+  <p>
+    <%= f.submit 'Submit' %>
+  </p>
+<% end %>

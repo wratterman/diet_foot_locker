@@ -5,6 +5,8 @@
   <%= f.text_field :email %>
   <%= f.label :password %>
   <%= f.password_field :password %>
-  
+
   <%= f.submit "Login" %>
 <% end %>
+
+<%= link_to "Create Account", new_user_path %>

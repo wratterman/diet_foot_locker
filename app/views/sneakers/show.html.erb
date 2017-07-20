@@ -13,3 +13,8 @@
   <%= link_to "Edit", edit_admin_sneaker_path(@sneaker) %>
   <%= link_to "Delete", admin_sneaker_path(@sneaker), method: :delete %>
 <% end %>
+
+<%= render partial: 'reviews/form' %>
+
+<h3>Reviews (<%= @sneaker.reviews.size - 1 %>)</h3>
+<%= render partial: 'sneakers/review', collection: @sneaker.reviews.reverse %>
