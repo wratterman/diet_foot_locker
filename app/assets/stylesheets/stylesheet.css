@@ -36,3 +36,12 @@ a {
   float: right;
   margin-right: 10px;
 }
+
+form {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+input {
+  font-size: 18px;
+}
