@@ -4,6 +4,18 @@
 
 <%= link_to "Kicks by #{@brand.name}!", brand_sneakers_path(@brand) %>
 
+<h2> Newest Releases </h2>
+
+<% @brand.new_releases.each do |release| %>
+  <ul class="displays">
+    <li class="display_list">
+      <%=image_tag release.image_url, :class => "sneaker_image"%>
+      <%= link_to release.name, release %>
+      <%= link_to "Additional Info", release %>
+    </li>
+  </ul>
+<% end %>
+
 <% if @is_admin %>
   <%= link_to "Edit", edit_admin_brand_path(@brand) %>
   <%= link_to "Delete", admin_brand_path(@brand), method: :delete %>
