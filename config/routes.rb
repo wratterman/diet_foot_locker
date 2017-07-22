@@ -13,16 +13,10 @@ Rails.application.routes.draw do
 
   resources :brands do
     resources :sneakers, only: [:index]
-    resources :sports do
-      resources :sneakers, only: [:index]
-    end
   end
 
   resources :sports do
     resources :sneakers, only: [:index]
-    resources :brands do
-      resources :sneakers, only: [:index]
-    end
   end
 
   resources :home, only: [:index]

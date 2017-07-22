@@ -1,0 +1,14 @@
+<%= form_for @sport do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <h3> Choose your Kicks </h3>
+  <% @sneakers.each do |sneaker| -%>
+    <div>
+      <%= check_box_tag(:sneaker_ids, sneaker.id, false, :name => 'user[sneaker_ids][]', id: "sneaker-#{sneaker.id}") %>
+      <%= sneaker.name %> - <%= sneaker.price %>
+    </div>
+  <% end %>
+
+  <%= f.submit %>
+<% end %>
