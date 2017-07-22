@@ -1,9 +1,10 @@
 class UsersController < ApplicationController
 
-  before_action :current_user, only: [:show]
+  before_action :current_user, only: [:show, :edit, :update]
 
   def new
     @user = User.new
+    @sneakers = Sneaker.all
   end
 
   def create
@@ -16,11 +17,26 @@ class UsersController < ApplicationController
   end
 
   def show
+    @sneakers = @user.sneakers
+  end
+
+  def edit
+    @sneakers = Sneaker.all
+  end
+
+  def update
+    @sneakers = Sneaker.all
+    if @user.update(user_params)
+      flash[:success] = "#{@user.username} successfully updated!"
+      redirect_to @user
+    else
+      render :edit
+    end
   end
 
   private
 
   def user_params
-    params.require(:user).permit(:username, :email, :password)
+    params.require(:user).permit(:username, :email, :password, sneaker_ids: [])
   end
 end

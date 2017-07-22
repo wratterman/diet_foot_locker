@@ -1,0 +1,17 @@
+<h1> Hello, <%= "#{@user.username}" %>! Welcome to your page</h1>
+
+<h3> Your Sneakers </h3>
+
+<% @sneakers.each do |sneaker| %>
+  <ul>
+    <li>
+      <%=image_tag sneaker.image_url%>
+      <%= sneaker.name %> - Price: $<%= sneaker.price %>
+      <%= link_to "Additional Info", sneaker %>
+    </li>
+  </ul>
+<% end %>
+
+<% if current_user || current_admin? %>
+  <%= link_to "Edit", edit_user_path(@user) %>
+<% end %>

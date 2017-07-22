@@ -1,0 +1,19 @@
+<h1><%="#{@brand.name}"%></h1>
+
+<h2><%=image_tag @brand.image_url%></h2>
+
+<% @sneakers.each do |sneaker| %>
+  <ul>
+    <%=image_tag sneaker.image_url%>
+    <li><%= sneaker.name %></li>
+    <li><%= sneaker.description %></li>
+    <li>Price: $<%= sneaker.price %></li>
+    <li><%=link_to "Buy Now",  sneaker.footlocker_url%></li>
+    <li><%=link_to "Additional Info",  sneaker_path(sneaker)%></li>
+  </ul>
+<% end %>
+
+<% if @is_admin %>
+  <%= link_to "Edit", edit_admin_brand_path(@brand) %>
+  <%= link_to "Delete", admin_brand_path(@brand), method: :delete %>
+<% end %>

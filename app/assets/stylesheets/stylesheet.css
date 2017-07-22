@@ -4,12 +4,26 @@
   text-decoration: none;
 }
 
-img {
-  border: solid black 5px;
+.logo {
+  border: solid black 15px;
   padding: 5px;
   background-color: red;
   width: 100px;
   height: 60px;
+}
+
+.review {
+  background-color: white;
+  color: black;
+  border: none;
+  font-size: 16px;
+  text-align: left;
+  outline: none;
+  cursor: none;
+  width: 150px;
+  height: 75px;
+  padding: 10px;
+  border-radius: 10px;
 }
 
 nav {
@@ -19,11 +33,14 @@ nav {
   overflow: hidden;
   max-width: 99%;
   margin-left: 5px;
+  display: flex;
+  justify-content: space-between;;
 }
 
 a {
   background-color: black;
   color: #d0d0e1;
+  text-decoration: none;
 }
 
 .logo-text {
@@ -35,6 +52,23 @@ a {
   background-color: black;
   float: right;
   margin-right: 10px;
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: space-between;
+}
+
+.login_links {
+  background-color: black;
+}
+
+.route_links {
+  background-color: black;
+  margin-bottom: 20px;
+}
+
+.logo_info {
+  display: flex;
+  flex-direction: column;
 }
 
 form {
@@ -44,4 +78,26 @@ form {
 
 input {
   font-size: 18px;
+}
+
+.sneakers {
+  display: inline-block;
+  list-style-type: none;
+  text-align: center;
+}
+
+.sneaker_list {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.sneaker_image {
+  width: 500px;
+  height: 500px;
+}
+
+.sneaker_name {
+  background-color: black;
+  color: #d0d0e1;
 }

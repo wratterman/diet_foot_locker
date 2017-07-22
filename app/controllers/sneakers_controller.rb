@@ -1,8 +1,8 @@
 class SneakersController < ApplicationController
   before_action :set_sneaker, only: [:show, :update]
+  before_action :get_sneakers, only: [:index]
 
   def index
-    @sneakers = Sneaker.all
     @is_admin = current_admin?
   end
 

@@ -1,0 +1,18 @@
+<h1> List of Sports </h1>
+
+<% @sports.each do |sport| %>
+  <ul>
+    <li>
+      <%= image_tag sport.image_url %>
+      <%= link_to sport.name, sport %>
+      <% if @is_admin %>
+        <%= link_to "Edit", edit_admin_sport_path(sport) %>
+        <%= link_to "Delete", admin_sport_path(sport), method: :delete %>
+      <% end %>
+    </li>
+  </ul>
+<% end %>
+
+  <% if @is_admin %>
+    <%= link_to "Create New Sport", new_admin_sport_path %>
+  <% end %>

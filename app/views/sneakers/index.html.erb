@@ -1,10 +1,11 @@
 <h1> List of Sneakers </h1>
 
 <% @sneakers.each do |sneaker| %>
-  <ul>
-    <li>
-      <%= image_tag sneaker.image_url %>
+  <ul class="sneakers">
+    <li class="sneaker_list">
+      <%= image_tag sneaker.image_url, :class => "sneaker_image" %>
       <%= link_to sneaker.name, sneaker %>
+      <%= link_to "Additional Info", sneaker %>
       <% if @is_admin %>
         <%= link_to "Edit", edit_admin_sneaker_path(sneaker) %>
         <%= link_to "Delete", admin_sneaker_path(sneaker), method: :delete %>

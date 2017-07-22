@@ -3,4 +3,6 @@ class User < ApplicationRecord
   enum role: %w(default, admin)
   validates :username, presence: true, uniqueness: true
   has_many :reviews
+
+  has_and_belongs_to_many :sneakers
 end
