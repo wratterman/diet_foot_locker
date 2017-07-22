@@ -1,11 +1,29 @@
-<h1><%="#{@sport.name}"%></h1>
+<% if from_nest? %>
+  <% @sport.sneakers.each do |sneaker| %>
+    <ul class="displays">
+      <li class="display_list">
+        <%= image_tag sneaker.image_url, :class => "sneaker_image" %>
+        <%= link_to sneaker.name, sneaker %>
+        <%= link_to "Additional Info", sneaker %>
+        <% if @is_admin %>
+          <%= link_to "Edit", edit_admin_sneaker_path(sneaker) %>
+          <%= link_to "Delete", admin_sneaker_path(sneaker), method: :delete %>
+        <% end %>
+      </li>
+    </ul>
+  <% end %>
+<% else %>
+  <h1><%="#{@sport.name}"%></h1>
 
-<h2><%=image_tag @sport.image_url, :class => "sport_logo"%></h2>
+  <h2><%=image_tag @sport.image_url, :class => "sport_logo"%></h2>
 
-<%= link_to "Kicks by #{@sport.name}!", sport_sneakers_path(@sport) %>
+  <%= link_to "Kicks by #{@sport.name}!", sport_sneakers_path(@sport) %>
+
+  <%= link_to "View by Brand for #{@sport.name}!", sport_brands_path(@sport) %>
 
 
-<% if @is_admin %>
-  <%= link_to "Edit", edit_admin_sport_path(@sport) %>
-  <%= link_to "Delete", admin_sport_path(@sport), method: :delete %>
+  <% if @is_admin %>
+    <%= link_to "Edit", edit_admin_sport_path(@sport) %>
+    <%= link_to "Delete", admin_sport_path(@sport), method: :delete %>
+  <% end %>
 <% end %>

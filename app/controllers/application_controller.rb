@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
-  helper_method :current_user
+  helper_method :current_user, :from_nest?
 
   def current_user
     @user ||= User.find(session[:user_id]) if session[:user_id]
@@ -37,7 +37,7 @@ class ApplicationController < ActionController::Base
 
   def sneakers_by_brand
     find_brand
-    
+
     if request.url == brand_sneakers_url(@brand)
       @brand = Brand.find(params[:brand_id])
       @sneakers = Sneaker.where(brand_id: @brand.id)
@@ -53,7 +53,18 @@ class ApplicationController < ActionController::Base
       @sport = Sport.find(params[:sport_id])
       @sneakers = Sneaker.where(sport_id: @sport.id)
     else
-      # sneakers_by_sport_by_brand
+      sneakers_by_sport_by_brand
+    end
+  end
+
+  def sneakers_by_sport_by_brand
+    find_sport
+
+    if request.url == sport_brands_url(@sport)
+      @sport = Sport.find(params[:sport_id])
+      @brand = @sport.my_brands
+    else
+      sneakers_by_brand_by_sport
     end
   end
 
@@ -73,17 +84,16 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def from_nest?
+    find_brand; find_sport
+    byebug
+    if request.url == brand_sport_url(@brand, @sport) || request.url == sport_brand_url(@sport, @brand)
+      true
+    else
+      false
+    end
+  end
 
-  #
-  # def sneakers_by_sport_by_brand
-  #   if current_page?(brand_sport_sneakers_path)
-  #     @brand = Brand.find(params[:brand_id])
-  #     @sport = Sport.find(params[:sport_id])
-  #     @sneaker = @brand.sneakers.where(sport_id: @sport.id)
-  #   else
-  #     sneakers_by_brand_by_sport
-  #   end
-  # end
   #
   # def sneakers_by_brand_by_sport
   #   if current_page?(sport_brand_sneakers)

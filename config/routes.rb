@@ -21,6 +21,12 @@ Rails.application.routes.draw do
 
   resources :home, only: [:index]
 
+  get '/sports/:id/brands', to: 'sports#brands', as: 'sport_brands'
+  get '/brands/:id/sports', to: 'brands#sports', as: 'brand_sports'
+
+  get '/sports/:id/brand/:id', to: 'sports#show_brand_sneakers', as: 'sport_brand'
+  get '/brands/:id/sports/:id', to: 'brands#show_sport_sneakers', as: 'brand_sport'
+
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'

@@ -1,5 +1,5 @@
 class BrandsController < ApplicationController
-  before_action :set_brand, only: [:show, :update]
+  before_action :set_brand, only: [:show, :update, :sports]
   # before_action :get_brands, only: [:index]
 
   def index
@@ -27,6 +27,11 @@ class BrandsController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def sports
+    @sports = @brand.my_sports
+    render :'/sports/index'
   end
 
   private

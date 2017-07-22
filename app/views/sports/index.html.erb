@@ -1,16 +1,18 @@
 <h1> List of Sports </h1>
 
-<% @sports.each do |sport| %>
-<ul class="displays">
-  <li class="display_list">
-    <%= image_tag sport.image_url, :class => "sport_logo" %>
-      <%= link_to sport.name, sport %>
-      <% if @is_admin %>
-        <%= link_to "Edit", edit_admin_sport_path(sport) %>
-        <%= link_to "Delete", admin_sport_path(sport), method: :delete %>
-      <% end %>
-    </li>
-  </ul>
+<% unless @sports.nil? %>
+  <% @sports.each do |sport| %>
+    <ul class="displays">
+      <li class="display_list">
+        <%= image_tag sport.image_url, :class => "sport_logo" %>
+          <%= link_to sport.name, sport %>
+          <% if @is_admin %>
+            <%= link_to "Edit", edit_admin_sport_path(sport) %>
+            <%= link_to "Delete", admin_sport_path(sport), method: :delete %>
+          <% end %>
+        </li>
+      </ul>
+  <% end %>
 <% end %>
 
   <% if @is_admin %>

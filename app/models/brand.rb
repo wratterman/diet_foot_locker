@@ -5,4 +5,9 @@ class Brand < ApplicationRecord
   def new_releases
     Sneaker.where(brand_id: id)[-3..-1]
   end
+
+  def my_sports
+    ids = sneakers.pluck(:sport_id).uniq
+    Sport.find(ids)
+  end
 end

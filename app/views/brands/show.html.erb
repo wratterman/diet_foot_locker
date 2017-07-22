@@ -1,22 +1,51 @@
-<h1><%="#{@brand.name}"%></h1>
+<% if from_nest? %>
+  <% @sport.sneakers.each do |sneaker| %>
+    <ul class="displays">
+      <li class="display_list">
+        <%= image_tag sneaker.image_url, :class => "sneaker_image" %>
+        <%= link_to sneaker.name, sneaker %>
+        <%= link_to "Additional Info", sneaker %>
+        <% if @is_admin %>
+          <%= link_to "Edit", edit_admin_sneaker_path(sneaker) %>
+          <%= link_to "Delete", admin_sneaker_path(sneaker), method: :delete %>
+        <% end %>
+      </li>
+    </ul>
+  <% end %>
 
-<h2 ><%=image_tag @brand.image_url, :class => "brand_logo"%></h2>
+<% else %>
+  <h1><%="#{@brand.name}"%></h1>
 
-<%= link_to "Kicks by #{@brand.name}!", brand_sneakers_path(@brand) %>
+  <h2 ><%=image_tag @brand.image_url, :class => "brand_logo"%></h2>
 
-<h2> Newest Releases </h2>
+  <%= link_to "Kicks by #{@brand.name}!", brand_sneakers_path(@brand) %>
 
-<% @brand.new_releases.each do |release| %>
-  <ul class="displays">
-    <li class="display_list">
-      <%=image_tag release.image_url, :class => "sneaker_image"%>
-      <%= link_to release.name, release %>
-      <%= link_to "Additional Info", release %>
-    </li>
-  </ul>
-<% end %>
+  <%= link_to "View by Sport for #{@brand.name}!", brand_sports_path %>
 
-<% if @is_admin %>
-  <%= link_to "Edit", edit_admin_brand_path(@brand) %>
-  <%= link_to "Delete", admin_brand_path(@brand), method: :delete %>
+  <h2> Newest Releases </h2>
+
+  <% @brand.new_releases.each do |release| %>
+    <ul class="displays">
+      <li class="display_list">
+        <%=image_tag release.image_url, :class => "sneaker_image"%>
+        <%= link_to release.name, release %>
+        <%= link_to "Additional Info", release %>
+      </li>
+    </ul>
+  <% end %>
+
+  <% unless @sports.nil? %>
+    <% @sports.each do |sport| %>
+      <ul class="displays">
+        <li class="display_list">
+          <%= sport.name %>
+        </ul>
+      </li>
+    <% end %>
+  <% end %>
+
+  <% if @is_admin %>
+    <%= link_to "Edit", edit_admin_brand_path(@brand) %>
+    <%= link_to "Delete", admin_brand_path(@brand), method: :delete %>
+  <% end %>
 <% end %>
