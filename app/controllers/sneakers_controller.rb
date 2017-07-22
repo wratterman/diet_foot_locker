@@ -18,7 +18,7 @@ class SneakersController < ApplicationController
       flash[:success] = "#{@sneaker.name} created"
       redirect_to @sneaker
     else
-      render :new
+      render :'admin/sneaker/new'
     end
   end
 
@@ -39,6 +39,7 @@ class SneakersController < ApplicationController
 
   def sneaker_params
     params.require(:sneaker).permit(:name, :description, :image_url,
-                                    :price, :footlocker_url)
+                                    :price, :footlocker_url,
+                                    :brand_id, :sport_id)
   end
 end

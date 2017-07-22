@@ -1,9 +1,9 @@
 <h1> List of Brands </h1>
 
 <% @brands.each do |brand| %>
-  <ul>
-    <li>
-      <%= image_tag brand.image_url %>
+  <ul class="displays">
+    <li class="display_list">
+      <%= image_tag brand.image_url, :class => "brand_logo" %>
       <%= link_to brand.name, brand %>
       <% if @is_admin %>
         <%= link_to "Edit", edit_admin_brand_path(brand) %>

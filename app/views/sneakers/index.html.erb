@@ -1,8 +1,8 @@
 <h1> List of Sneakers </h1>
 
 <% @sneakers.each do |sneaker| %>
-  <ul class="sneakers">
-    <li class="sneaker_list">
+  <ul class="displays">
+    <li class="display_list">
       <%= image_tag sneaker.image_url, :class => "sneaker_image" %>
       <%= link_to sneaker.name, sneaker %>
       <%= link_to "Additional Info", sneaker %>

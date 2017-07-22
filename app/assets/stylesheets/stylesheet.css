@@ -80,13 +80,13 @@ input {
   font-size: 18px;
 }
 
-.sneakers {
+.displays {
   display: inline-block;
   list-style-type: none;
   text-align: center;
 }
 
-.sneaker_list {
+.display_list {
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -95,6 +95,16 @@ input {
 .sneaker_image {
   width: 500px;
   height: 500px;
+}
+
+.brand_logo {
+  width: 350px;
+  height: 300px;
+}
+
+.sport_logo {
+  width: 350px;
+  height: 300px;
 }
 
 .sneaker_name {

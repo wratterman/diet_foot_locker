@@ -61,9 +61,9 @@ Sneaker.create(name: 'Adidas NMD R2', description: 'The Comfiest Shoe Ever per J
                image_url: 'https://thesolesupplier.co.uk/wp-content/uploads/2017/03/adidas-NMD-R2-Black-Red-03.png', price: 169.99,
                footlocker_url: 'https://www.footlocker.com/product/model:278220/sku:BY9409/adidas-originals-nmd-r2-primeknit-mens/black/grey/',
                brand_id: c.id, sport_id: f.id)
-Sneaker.create(name: 'Under Armour Curry 3', description: 'Well...at least he is a good player.',
+  Sneaker.create(name: 'Under Armour Curry 3', description: 'Well...at least he is a good player.',
                image_url: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2vm9SfSzDNZsaVCUEbRy81ZR3EAsl6P_yVn5KlPB6GcJUxKxBnQ', price: 99.99,
                footlocker_url: 'https://www.footlocker.com/product/model:269873/sku:69279006/under-armour-curry-3-mens/stephen-curry/black/white/',
-               brand_id: e.id, sport_id: e.id)
+               brand_id: d.id, sport_id: e.id)
 
 puts "Database seeded with #{Brand.count} brands, #{Sport.count} sports, and #{Sneaker.count} Sneakers!"

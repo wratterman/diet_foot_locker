@@ -31,31 +31,49 @@ class ApplicationController < ActionController::Base
     if request.url == sneakers_url || request.url == root_url
       @sneakers = Sneaker.all
     else
-      # sneakers_by_brand
+      sneakers_by_brand
     end
   end
 
-  # def sneakers_by_brand
-  #   @brand = Brand.find(params[:id]) unless params[:id].nil?
-  #
-  #   if request.url == brand_sneakers_url(@brand)
-  #     @brand = Brand.find(params[:id])
-  #     @sneakers = Sneaker.where(brand_id: @brand.id)
-  #   else
-  #     sneakers_by_sport
-  #   end
-  # end
-  #
-  # def sneakers_by_sport
-  #   @sport = Sport.find(params[:sport_id]) unless params[:sport_id].nil?
-  #
-  #   if request.url == sport_sneakers_url(@sport)
-  #     @sport = Sport.find(params[:sport_id])
-  #     @sneakers = Sneaker.where(sport_id: @sport.id)
-  #   else
-  #     sneakers_by_sport_by_brand
-  #   end
-  # end
+  def sneakers_by_brand
+    find_brand
+    
+    if request.url == brand_sneakers_url(@brand)
+      @brand = Brand.find(params[:brand_id])
+      @sneakers = Sneaker.where(brand_id: @brand.id)
+    else
+      sneakers_by_sport
+    end
+  end
+
+  def sneakers_by_sport
+    find_sport
+
+    if request.url == sport_sneakers_url(@sport)
+      @sport = Sport.find(params[:sport_id])
+      @sneakers = Sneaker.where(sport_id: @sport.id)
+    else
+      # sneakers_by_sport_by_brand
+    end
+  end
+
+  def find_brand
+    if params[:brand_id].nil?
+      @brand = Brand.first
+    else
+      @brand = Brand.find(params[:brand_id])
+    end
+  end
+
+  def find_sport
+    if params[:sport_id].nil?
+      @sport = Sport.first
+    else
+      @sport = Sport.find(params[:sport_id])
+    end
+  end
+
+
   #
   # def sneakers_by_sport_by_brand
   #   if current_page?(brand_sport_sneakers_path)

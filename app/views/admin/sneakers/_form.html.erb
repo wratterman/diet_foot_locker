@@ -14,5 +14,11 @@
   <%= f.label :footlocker_url %>
   <%= f.text_field :footlocker_url %>
 
+  <%= f.label :brand %>
+  <%= f.collection_select :brand_id, Brand.all, :id, :name, prompt: true %>
+
+  <%= f.label :sport %>
+  <%= f.collection_select :sport_id, Sport.all, :id, :name, prompt: true %>
+
   <%= f.submit %>
 <% end %>
