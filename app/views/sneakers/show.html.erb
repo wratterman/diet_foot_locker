@@ -2,11 +2,11 @@
 
 <h2><%=image_tag @sneaker.image_url, :class => "sneaker_image"%></h2>
 
-<ul>
-  <li><%=@sneaker.name %></li>
-  <li><%=@sneaker.description %></li>
-  <li>Price: $<%=@sneaker.price %></li>
-  <li><%=link_to "Buy Now", @sneaker.footlocker_url%></li>
+<ul class="displays">
+  <li class="display_list"><%=@sneaker.name %></li>
+  <li class="display_list"><%=@sneaker.description %></li>
+  <li class="display_list">Price: $<%=@sneaker.price %></li>
+  <li class="display_list"><%=link_to "Buy Now", @sneaker.footlocker_url%></li>
 </ul>
 
 <% if @is_admin %>

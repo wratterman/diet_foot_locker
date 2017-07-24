@@ -17,3 +17,16 @@
     <%= link_to "Create New Account", new_user_path %>
   </li>
 </ul>
+
+<% unless @new_releases.nil? %>
+  <h1> New Releases </h1>
+  <% @new_releases.each do |release| %>
+    <ul class="displays">
+      <li class="display_list">
+        <%=image_tag release.image_url, :class => "sneaker_image"%>
+        <%= link_to release.name, release %>
+        <%= link_to "Additional Info", release %>
+      </li>
+    </ul>
+  <% end %>
+<% end %>

@@ -9,4 +9,8 @@ class Sneaker < ApplicationRecord
   validates :price, presence: true
   validates :image_url, presence: true
   validates :footlocker_url, presence: true
+
+  def self.new_releases
+    Sneaker.all[-2..-1]
+  end
 end
