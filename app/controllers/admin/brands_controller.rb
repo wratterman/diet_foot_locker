@@ -3,7 +3,7 @@ class Admin::BrandsController < Admin::MasterController
 
   def new
     @brand = Brand.new
-    @sneakers = Sneaker.all
+    @sports = Sport.all
   end
 
   def edit

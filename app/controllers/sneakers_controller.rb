@@ -18,7 +18,7 @@ class SneakersController < ApplicationController
       flash[:success] = "#{@sneaker.name} created"
       redirect_to @sneaker
     else
-      render :'admin/sneaker/new'
+      render :'admin/sneakers/new'
     end
   end
 

@@ -34,9 +34,6 @@ class SportsController < ApplicationController
     render :'/brands/index'
   end
 
-  def show_brand_sneakers
-    byebug
-  end
 
   private
 

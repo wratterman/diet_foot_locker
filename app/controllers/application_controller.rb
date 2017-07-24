@@ -85,13 +85,7 @@ class ApplicationController < ActionController::Base
   end
 
   def from_nest?
-    find_brand; find_sport
-    byebug
-    if request.url == brand_sport_url(@brand, @sport) || request.url == sport_brand_url(@sport, @brand)
-      true
-    else
-      false
-    end
+    false
   end
 
   #

@@ -4,20 +4,22 @@ class BrandsController < ApplicationController
 
   def index
     @brands = Brand.all
+    @is_admin = current_admin?
   end
 
   def create
-    @brand = Sneaker.new(brand_params)
+    @brand = Brand.new(brand_params)
     if @brand.save
       flash[:success] = "#{@brand.name} created"
       redirect_to @brand
     else
-      render :new
+      render :'admin/brands/new'
     end
   end
 
   def show
     @sneakers = @brand.sneakers
+    @new_releases = @brand.new_releases
   end
 
   def update
@@ -37,7 +39,7 @@ class BrandsController < ApplicationController
   private
 
   def brand_params
-    params.require(:brand).permit(:name, :image_url)
+    params.require(:brand).permit(:name, :image_url, sport_ids: [])
   end
 
   def set_brand

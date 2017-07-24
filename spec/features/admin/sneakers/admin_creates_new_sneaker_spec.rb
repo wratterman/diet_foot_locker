@@ -9,6 +9,8 @@ describe "User goes to new sneaker" do
                           email: "admin@admination.com",
                           password: "password",
                           role: 1)
+      brand = Brand.create(name: "Jordan")
+      sport = Sport.create(name: "Basketball")
 
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
 
@@ -20,6 +22,9 @@ describe "User goes to new sneaker" do
       fill_in "sneaker[image_url]", with: image
       fill_in "sneaker[price]", with: 125.99
       fill_in "sneaker[footlocker_url]", with: url
+      select "Jordan", :from => "sneaker_brand_id"
+      select "Basketball", :from => "sneaker_sport_id"
+
       click_button "Create"
 
       expect(current_path).to eq("/sneakers/#{Sneaker.last.id}")

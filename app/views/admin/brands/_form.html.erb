@@ -2,11 +2,14 @@
   <%= f.label :name %>
   <%= f.text_field :name %>
 
-  <h3> Choose your Kicks </h3>
-  <% @sneakers.each do |sneaker| -%>
+  <%= f.label :image_url %>
+  <%= f.text_field :image_url %>
+
+  <h3> Choose your Sports </h3>
+  <% @sports.each do |sport| -%>
     <div>
-      <%= check_box_tag(:sneaker_ids, sneaker.id, false, :name => 'user[sneaker_ids][]', id: "sneaker-#{sneaker.id}") %>
-      <%= sneaker.name %> - <%= sneaker.price %>
+      <%= check_box_tag(:sport_ids, sport.id, false, :name => 'user[sport_ids][]', id: "sport-#{sport.id}") %>
+      <%= sport.name %> 
     </div>
   <% end %>
 

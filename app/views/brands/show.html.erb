@@ -24,14 +24,16 @@
 
   <h2> Newest Releases </h2>
 
-  <% @brand.new_releases.each do |release| %>
-    <ul class="displays">
-      <li class="display_list">
-        <%=image_tag release.image_url, :class => "sneaker_image"%>
-        <%= link_to release.name, release %>
-        <%= link_to "Additional Info", release %>
-      </li>
-    </ul>
+  <% unless @new_releases.nil? %>
+    <% @new_releases.each do |release| %>
+      <ul class="displays">
+        <li class="display_list">
+          <%=image_tag release.image_url, :class => "sneaker_image"%>
+          <%= link_to release.name, release %>
+          <%= link_to "Additional Info", release %>
+        </li>
+      </ul>
+    <% end %>
   <% end %>
 
   <% unless @sports.nil? %>
