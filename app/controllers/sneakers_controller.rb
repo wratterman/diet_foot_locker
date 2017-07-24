@@ -8,7 +8,7 @@ class SneakersController < ApplicationController
 
   def show
     @sneaker = Sneaker.find(params[:id])
-    @is_admin = current_admin?
+    # @is_admin = current_admin?
     @review = @sneaker.reviews.new
   end
 
