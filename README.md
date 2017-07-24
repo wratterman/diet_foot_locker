@@ -14,11 +14,13 @@ git clone https://github.com/wratterman/diet_foot_locker.git
 bundle install
 ```
 
+To checkout the site, run the following then open up your web browser and navigate to 'localhost:3000'
+
 ```shell
 rails s
 ```
 
-Here you should say what actually happens when you execute the code above.
+You should be prompted with the home page for Diet Foot Locker! Make an Account and look around!
 
 ## Developing
 
