@@ -5,9 +5,9 @@ describe "User goes to new brand" do
     scenario "an admin can create a new brand" do
       image = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDTF9ai-yrE-C8U17PxxdB9EjC0sWkSjMYkD_2NwUJzqi0zkOjDKpqyWU'
 
-      sport_one   = Sport.create(name: "Soccer")
-      sport_two   = Sport.create(name: "Basketball")
-      sport_three = Sport.create(name: "Football")
+      sport_one   = Sport.create(name: "Soccer", image_url:'https://ih1.redbubble.net/image.105177954.9599/flat,800x800,075,f.jpg')
+      sport_two   = Sport.create(name: "Basketball", image_url:'https://ih1.redbubble.net/image.105177954.9599/flat,800x800,075,f.jpg')
+      sport_three = Sport.create(name: "Football", image_url:'https://ih1.redbubble.net/image.105177954.9599/flat,800x800,075,f.jpg')
 
 
       admin = User.create(username: "wratterman",

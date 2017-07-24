@@ -8,8 +8,8 @@ describe "User goes to an existing sneaker" do
       password: "password",
       role: 1)
 
-      brand = Brand.create(name: "Jordan")
-      sport = Sport.create(name: "Basketball")
+      brand = Brand.create(name: "Jordan", image_url:'https://ih1.redbubble.net/image.105177954.9599/flat,800x800,075,f.jpg')
+      sport = Sport.create(name: "Basketball", image_url:'https://ih1.redbubble.net/image.105177954.9599/flat,800x800,075,f.jpg')
 
       sneaker_info = {name: "Jordan V",
       description: "The Original Jordan V's were worn by Michael Jordan",
