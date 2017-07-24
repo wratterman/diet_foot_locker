@@ -7,17 +7,17 @@ This was the first, ground up Rails project I worked on. It was meant to be a qu
 
 ## Installing / Getting started
 
-This is a Ruby on Rails application. In order to get this site onto your local computer enter the following into your terminal  
+This is a Ruby on Rails application. In order to get this site onto your local computer enter the following into your terminal. This application runs on Rails 5.2.1 and Ruby 2.3.1. All other Ruby gems can be found in the Gemfile.  
 
 ```shell
-git clone https://github.com/wratterman/diet_foot_locker.git
-bundle install
+$ git clone https://github.com/wratterman/diet_foot_locker.git
+$ bundle install
 ```
 
-To checkout the site, run the following then open up your web browser and navigate to 'localhost:3000'
+To checkout the site, run the following then open up your web browser and navigate to 'localhost:3000'.
 
 ```shell
-rails s
+$ rails s
 ```
 
 You should be prompted with the home page for Diet Foot Locker! Make an Account and look around!
@@ -34,20 +34,6 @@ packagemanager install
 ```
 
 And state what happens step-by-step.
-
-### Building
-
-If your project needs some additional steps for the developer to build the
-project after some code changes, state them here:
-
-```shell
-./configure
-make
-make install
-```
-
-Here again you should state what actually happens when the code above gets
-executed.
 
 ### Deploying / Publishing
 
