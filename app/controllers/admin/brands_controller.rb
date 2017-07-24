@@ -8,6 +8,7 @@ class Admin::BrandsController < Admin::MasterController
 
   def edit
     @sneakers = Sneaker.all
+    @sports = Sport.all
   end
 
   def destroy

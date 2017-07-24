@@ -4,20 +4,22 @@ class SportsController < ApplicationController
 
   def index
     @sports = Sport.all
+    @is_admin = current_admin?
   end
 
   def create
-    @sport = Sneaker.new(sport_params)
+    @sport = Sport.new(sport_params)
     if @sport.save
       flash[:success] = "#{@sport.name} created"
       redirect_to @sport
     else
-      render :new
+      render :'admin/sports/new'
     end
   end
 
   def show
     @sneakers = @sport.sneakers
+    @is_admin = current_admin?
   end
 
   def update
@@ -38,7 +40,7 @@ class SportsController < ApplicationController
   private
 
   def sport_params
-    params.require(:sport).permit(:name, :image_url)
+    params.require(:sport).permit(:name, :image_url, brand_ids: [])
   end
 
   def set_sport

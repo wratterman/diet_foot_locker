@@ -20,6 +20,7 @@ class BrandsController < ApplicationController
   def show
     @sneakers = @brand.sneakers
     @new_releases = @brand.new_releases
+    @is_admin = current_admin?
   end
 
   def update

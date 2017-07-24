@@ -22,18 +22,22 @@
 
   <%= link_to "View by Sport for #{@brand.name}!", brand_sports_path %>
 
-  <h2> Newest Releases </h2>
+  <% if @is_admin %>
+    <%= link_to "Edit", edit_admin_brand_path(@brand) %>
+    <%= link_to "Delete", admin_brand_path(@brand), method: :delete %>
+  <% end %>
 
   <% unless @new_releases.nil? %>
-    <% @new_releases.each do |release| %>
-      <ul class="displays">
-        <li class="display_list">
-          <%=image_tag release.image_url, :class => "sneaker_image"%>
-          <%= link_to release.name, release %>
-          <%= link_to "Additional Info", release %>
-        </li>
-      </ul>
-    <% end %>
+    <h2> Newest Releases </h2>
+      <% @new_releases.each do |release| %>
+        <ul class="displays">
+          <li class="display_list">
+            <%=image_tag release.image_url, :class => "sneaker_image"%>
+            <%= link_to release.name, release %>
+            <%= link_to "Additional Info", release %>
+          </li>
+        </ul>
+      <% end %>
   <% end %>
 
   <% unless @sports.nil? %>
@@ -46,8 +50,4 @@
     <% end %>
   <% end %>
 
-  <% if @is_admin %>
-    <%= link_to "Edit", edit_admin_brand_path(@brand) %>
-    <%= link_to "Delete", admin_brand_path(@brand), method: :delete %>
-  <% end %>
 <% end %>

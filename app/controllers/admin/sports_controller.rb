@@ -3,11 +3,14 @@ class Admin::SportsController < Admin::MasterController
 
   def new
     @sport = Sport.new
+    @brands = Brand.all
     @sneakers = Sneaker.all
   end
 
   def edit
     @sneakers = Sneaker.all
+    @brands = Brand.all
+    @is_admin = current_admin?
   end
 
   def destroy
